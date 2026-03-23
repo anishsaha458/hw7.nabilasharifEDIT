@@ -26,7 +26,7 @@ So far, the project includes:
   * Input handling
   * Game state updates
   * Rendering
-* Frame rate control (FPS)
+  * Frame rate control (FPS)
 
 ### ✅ Phase 2: Grid + Map System
 
@@ -209,3 +209,82 @@ Phase 7
 
 Add AI
 
+
+-code is displaying screen with no visual features
+-none of the features have been implemented
+-needs to be implemented
+
+A map rendering file is not present in the files. The map loading/rendering will be in a separate map.py file. There isn't a preference for the size of each tile. 
+
+-all future implementations stated in the txt file will be implemented which is drawing the grid map, moving the pac man with no ghosts, adding pellets, adding collisions, and adding random ghosts
+
+-new files were created in order to complete the foundational pac man game set up
+-game, pacman, ghost, map, settings, main, level1
+
+-a full pacman class was creaed as well as a ghost class
+
+The full pacman has buffered arrow-key input, tile-by-tile grid movement with tunnel wrap, wall collision, pellet/power pellet which mutates the map, and score tracking
+
+The full ghost class has random direction AI with no reversals, frightened mode, respawn on being eaten, and 4 distinct colors.
+
+Updates on previous files:
+game.py()- 
+update() is complete which moves Pac-man, detects what was eaten, frightens ghosts on power pellets, moves all ghosts, checks ghosts collisions, checks win condition, 
+handle_events()- forwards keys to Pac-man and handles R to restart
+draw()- handles all entities plus a score and win/death overlays
+
+map.py- grid changed from list-of-strings to lists-of-lists so tiles can be mutated
+and added set_tile(), is_wall(), tile_center(), tile_to_pixel(), pixel_to_tile()
+
+settings.py- added PACMAN_SPEED, GHOST_SPEED, FRIGHTENED_DURATION, NUM_GHOSTS, RED, CYAN, ORANGE, DARK_BLUE
+
+The level1.txt is changed to a 28*31 tile grid
+
+Current Progress
+PLANNED PHASES
+
+Phase 1
+
+Window + game loop-- mostly done COMPLETE
+
+Phase 2
+
+Draw grid map COMPLETE
+
+Phase 3
+
+Move Pacman (no ghosts) COMPLETE
+
+Phase 4
+
+Add pellets COMPLETE
+
+Phase 5
+
+Add collision COMPLETE
+
+Phase 6
+
+Add ghosts (random) COMPLETE
+
+Phase 7
+
+Add AI COMPLETE
+
+current point:
+pacman/
+├── main.py          # Entry point
+├── game.py          # Game engine: loop, coordination, HUD, overlays
+├── settings.py      # All constants (size, speed, color, timing)
+├── map.py           # Map class: load, render, tile mutation
+├── pacman.py        # Pacman class: input, movement, eating, animation
+├── ghost.py         # Ghost class: random AI, frightened mode
+│
+└── level/
+    └── level1.txt   # 28×31 tile grid
+
+how to run:
+pip install pygame
+python main.py
+
+ensure all the files are in the same directory before running

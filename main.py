@@ -1,10 +1,14 @@
 # main.py
 
 """
-This is the entry point of the program.
+Entry point of the program.
 
-Think of this file as:
-"Start the game"
+Responsibilities (only):
+- Initialize pygame
+- Create and run the Game object
+- Quit pygame cleanly on exit
+
+Nothing game-specific lives here — all logic is in Game.
 """
 
 import pygame
@@ -13,22 +17,19 @@ from game import Game
 
 def main():
     """
-    Initializes pygame and starts the game.
+    Bootstrap sequence:
+        1. pygame.init()  — must come before any pygame calls
+        2. Game()         — sets up window, map, entities
+        3. game.run()     — blocks until window is closed
+        4. pygame.quit()  — clean shutdown
     """
-
-    # Initialize pygame (REQUIRED before using anything)
     pygame.init()
 
-    # Create the Game object (our core controller)
     game = Game()
-
-    # Start the main loop
     game.run()
 
-    # Clean exit
     pygame.quit()
 
 
-# Ensures this runs only when you execute this file directly
 if __name__ == "__main__":
     main()
