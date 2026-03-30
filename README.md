@@ -288,3 +288,10 @@ pip install pygame
 python main.py
 
 ensure all the files are in the same directory before running
+
+settings.py was not altered
+
+The power pellets do not work. Needs to be fixed
+pacman.py - _eat() now stores its result in self.last_eaten instead of returning (_move()) was discarding the return value. update() resets last_eaten to None at the end of the start of each frame. 
+
+game.py - pacman_update() is deleted entirely. update() now just calls self.pacman.update(self.map) directly and uses the return value. The old movement was comparing the tile state before and after the movement. failed since _eat() erases the tile before the comparison ever ran.

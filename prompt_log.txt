@@ -1,0 +1,59 @@
+# Prompt Log — Pac-Man OOP Build
+
+---
+
+## 1
+**User:** *(shared game.py, main.py, settings.py, README.md)*
+> needs to be updated with implementation
+
+**Action:** Asked which files existed. Identified Phase 2 was overclaimed as complete. Updated README to reflect Phase 1 complete, Phase 2 in progress.
+
+---
+
+## 2
+**User:** *(shared settings.py, level/level1.txt)*
+
+**Action:** Confirmed Phase 2 was in progress (map file existed but no loading/rendering code). Rewrote README accurately.
+
+---
+
+## 3
+**User:**
+> update all implementations
+
+**Action:** Asked about map.py location preference and tile size. User chose separate `map.py`, no tile size preference. Calculated 21px tiles from 28×31 grid + 600×700 window. Created `map.py`, updated `settings.py` (added TILE_SIZE, MAP_OFFSET_X/Y, colors), updated `game.py` to load and draw the map, expanded `level1.txt` to full 28×31 maze, updated README to Phase 2 complete.
+
+---
+
+## 4
+**User:**
+> no-implement all the functions that are in game.py and main.py
+
+**Action:** Asked what `update()` should handle. User selected all: Pac-Man movement, pellet collection, ghost movement. Created `pacman.py` (buffered input, grid movement, mouth animation, eating), `ghost.py` (random AI, frightened mode), fully implemented `game.py` (update, collision, win/death, HUD, overlays), updated `settings.py` (speed, ghost count, new colors), updated README to Phase 5 complete.
+
+---
+
+## 5
+**User:**
+> how to run
+
+**Action:** Provided run instructions: `pip install pygame` then `python main.py`.
+
+---
+
+## 6
+**User:**
+> the power pellets do not have any effect
+
+**Action:** Diagnosed bug in `_pacman_update()` in `game.py` — tile-before/after comparison failed because `_eat()` erased the tile before comparison ran. Fixed by storing eat result in `self.last_eaten` on `Pacman`, returning it from `update()`, and removing the broken `_pacman_update()` method from `Game`.
+
+---
+
+## 7
+**User:**
+> what happened in settings.py
+
+**Action:** Clarified that `settings.py` was not modified during the bug fix.
+
+---
+
